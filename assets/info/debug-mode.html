@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Roth Rumble</title>
+    <link rel="stylesheet" href="../css/infopages.css">
+  </head>
+  <body>
+    <main class="content" id="content"></main>
+    <script type="text/markdown" id="markdown">
+
+# Roth Rumble · Debug Hilfe
+
+## JavaScript Konsole öffnen
+
+Am Desktop PC:
+
+ * Mit STRG-SHIFT-F11 die Development Console öffnen.
+ * Auf den Reiter der JavaScrip Console wechseln.
+
+Am Mobilgerät:
+
+ * Das Spiel mit dem Suffix ?debug in der URL öffnen.
+ * Dies läd die Eruda JavaScript Konsole.
+ * Ein sichtbarer, verschiebbarer Button erscheint unten rechts.
+ * Der Button öffnet und schließt die JavaScript Console.
+
+## Debug-Befehle
+
+| Befehl                 | Beschreibung                                |
+| ---------------------- | ------------------------------------------- |
+| `game.godmode(true)`   | Godmode aktivieren (Team East unverwundbar) |
+| `game.godmode(false)`  | Godmode ausschalten                         |
+| `game.polygons(true)`  | Polygon-Grenzen anzeigen                    |
+| `game.polygons(false)` | Polygon-Grenzen ausblenden                  |
+| `game.win()`           | Aktuelle Runde sofort gewinnen              |
+| `game.nextLevel()`     | Nächstes Level laden                        |
+| `game.restart()`       | Aktuelles Level neu starten                 |
+
+Hinweis: Die Nutzung der Debug Befehle deaktiviert das Speichern der Highscores.
+
+    </script>
+    <script src="../js/markdown-loader.js"></script>
+  </body>
+</html>

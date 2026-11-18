@@ -1,0 +1,798 @@
+
+/*
+ * City Rumble – Informationsseiten
+ * Anleitung, Lizenz und Highscores
+ *
+ * Eigenständiges CSS für iframe-Seiten.
+ * Keine Abhängigkeit vom Spiel-CSS.
+ */
+
+
+/* ==========================================
+   SCHRIFTARTEN
+   ========================================== */
+
+@font-face {
+    font-family: "Bangers";
+    src: url("../fonts/Bangers/Bangers-Regular.woff2")
+         format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Nunito";
+    src: url("../fonts/Nunito/Nunito.woff2")
+         format("woff2");
+    font-weight: 200 1000;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+/* ==========================================
+   FARBEN UND GRUNDEINSTELLUNGEN
+   ========================================== */
+
+:root {
+    --background: #eaf3fa;
+    --surface: #ffffff;
+    --surface-alt: #edf5fd;
+
+    --text: #334155;
+    --text-muted: #64748b;
+
+    --heading: #183f72;
+    --heading-secondary: #21558b;
+
+    --accent: #c52d36;
+    --link: #1769ae;
+    --link-hover: #c52d36;
+
+    --border: #d5e3ef;
+    --border-strong: #bad4eb;
+
+    --table-header: #194b7e;
+    --table-stripe: #e8f3fc;
+
+    --font-body: "Nunito", sans-serif;
+    --font-heading: "Bangers", sans-serif;
+
+    --radius: 12px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+
+    background: var(--background);
+    color: var(--text);
+
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.65;
+
+    overflow-wrap: break-word;
+}
+
+
+/* ==========================================
+   INHALTSBEREICH
+   ========================================== */
+
+.content {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 28px 32px;
+
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    box-shadow: 0 4px 18px rgba(24, 63, 114, 0.08);
+}
+
+.content > :first-child {
+    margin-top: 0;
+}
+
+.content > :last-child {
+    margin-bottom: 0;
+}
+
+
+/* ==========================================
+   ÜBERSCHRIFTEN
+   ========================================== */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+
+    color: var(--heading);
+
+    margin: 1.5em 0 0.6em;
+}
+
+:root[dir="rtl"] :is(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--font-body);
+    font-weight: 800;
+    letter-spacing: normal;
+}
+
+:root[dir="rtl"] h1 {
+    padding-inline-end: 24px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 1.2rem;
+}
+
+h2 {
+    font-size: 1.9rem;
+    color: var(--heading-secondary);
+}
+
+h3 {
+    font-size: 1.55rem;
+}
+
+h4 {
+    font-size: 1.3rem;
+}
+
+h5 {
+    font-size: 1.15rem;
+}
+
+h6 {
+    font-size: 1rem;
+}
+
+/* Roter Akzent unter Hauptüberschriften */
+
+h1::after {
+    content: "";
+    display: block;
+
+    width: 65px;
+    height: 4px;
+
+    margin-top: 10px;
+
+    background: var(--accent);
+    border-radius: 4px;
+}
+
+
+/* ==========================================
+   ABSÄTZE UND TEXT
+   ========================================== */
+
+p {
+    margin: 0 0 1em;
+}
+
+strong, b {
+    font-weight: 800;
+}
+
+em, i {
+    font-style: italic;
+}
+
+small {
+    font-size: 0.85em;
+    color: var(--text-muted);
+}
+
+mark {
+    background: #fff0b8;
+    color: inherit;
+    padding: 0.1em 0.2em;
+    border-radius: 3px;
+}
+
+del, s {
+    text-decoration: line-through;
+}
+
+sub, sup {
+    font-size: 0.75em;
+    line-height: 0;
+}
+
+abbr[title] {
+    text-decoration: underline dotted;
+    cursor: help;
+}
+
+
+/* ==========================================
+   LINKS
+   ========================================== */
+
+a {
+    color: var(--link);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+
+    transition: color 0.15s ease;
+}
+
+a:hover {
+    color: var(--link-hover);
+}
+
+a:focus-visible {
+    outline: 2px solid var(--link);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+
+/* ==========================================
+   LISTEN
+   ========================================== */
+
+ul, ol {
+    margin: 0 0 1.2em;
+    padding-inline-start: 1.7em;
+}
+
+li {
+    padding-inline-start: 0.15em;
+    margin-bottom: 0.3em;
+}
+
+li > p {
+    margin: 0.4em 0;
+}
+
+li > ul,
+li > ol {
+    margin-top: 0.4em;
+    margin-bottom: 0.5em;
+}
+
+ul li::marker {
+    color: var(--accent);
+}
+
+ol li::marker {
+    color: var(--heading-secondary);
+    font-weight: 800;
+}
+
+/* Task-Listen bei entsprechenden
+   markdown-it-Erweiterungen */
+
+ul.contains-task-list {
+    list-style: none;
+    padding-left: 0.4em;
+}
+
+.task-list-item {
+    list-style: none;
+}
+
+.task-list-item input[type="checkbox"] {
+    margin-right: 0.5em;
+    accent-color: var(--heading-secondary);
+}
+
+
+/* ==========================================
+   ZITATE
+   ========================================== */
+
+blockquote {
+    margin: 1.3em 0;
+    padding: 12px 18px;
+
+    border-left: 4px solid var(--accent);
+    background: #f8fafc;
+
+    border-radius: 0 8px 8px 0;
+
+    color: var(--text);
+    font-style: italic;
+}
+
+blockquote > :last-child {
+    margin-bottom: 0;
+}
+
+blockquote blockquote {
+    margin: 0.8em 0;
+}
+
+
+/* ==========================================
+   TRENNLINIEN
+   ========================================== */
+
+hr {
+    border: 0;
+    border-top: 1px solid var(--border-strong);
+
+    margin: 1.8em 0;
+}
+
+
+/* ==========================================
+   CODE UND CODEBLÖCKE
+   ========================================== */
+
+code, pre, kbd, samp {
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.9em;
+}
+
+code {
+    background: #edf2f7;
+    color: #9b2940;
+
+    padding: 0.15em 0.35em;
+    border-radius: 4px;
+
+    overflow-wrap: anywhere;
+}
+
+pre {
+    margin: 1.2em 0;
+    padding: 16px 18px;
+
+    background: #edf5fd;
+    color: #203650;
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    overflow-x: auto;
+    line-height: 1.5;
+    tab-size: 4;
+}
+
+pre code {
+    padding: 0;
+    background: transparent;
+    color: inherit;
+
+    border: 0;
+    border-radius: 0;
+
+    white-space: pre;
+    overflow-wrap: normal;
+}
+
+kbd {
+    display: inline-block;
+
+    padding: 2px 7px;
+
+    background: #f1f5f9;
+    color: #26384d;
+
+    border: 1px solid #cbd5e1;
+    border-bottom-width: 2px;
+    border-radius: 5px;
+
+    white-space: nowrap;
+}
+
+
+/* ==========================================
+   BILDER UND MEDIEN
+   ========================================== */
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+p > img {
+    border-radius: 8px;
+}
+
+figure {
+    margin: 1.5em 0;
+    text-align: center;
+}
+
+figure img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+figcaption {
+    margin-top: 0.5em;
+
+    color: var(--text-muted);
+    font-size: 0.85em;
+}
+
+video, iframe, canvas, svg {
+    max-width: 100%;
+}
+
+audio {
+    max-width: 100%;
+}
+
+
+/* ==========================================
+   NORMALE MARKDOWN-TABELLEN
+   ========================================== */
+
+table {
+    width: 100%;
+    margin: 1.3em 0;
+
+    border-collapse: separate;
+    border-spacing: 0;
+
+    font-size: 0.95em;
+    line-height: 1.45;
+
+    border: 1px solid var(--border-strong);
+    border-radius: 9px;
+
+    overflow: hidden;
+}
+
+thead th {
+    background: var(--surface-alt);
+    color: var(--heading);
+
+    font-weight: 800;
+    text-align: left;
+
+    padding: 11px 13px;
+
+    border-bottom: 2px solid var(--border-strong);
+}
+
+tbody td,
+tbody th {
+    padding: 10px 13px;
+
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+}
+
+tbody tr:last-child td,
+tbody tr:last-child th {
+    border-bottom: 0;
+}
+
+tbody tr:nth-child(even) {
+    background: #f5f9fd;
+}
+
+tbody tr:hover {
+    background: #e8f3fc;
+}
+
+th[align="center"],
+td[align="center"] {
+    text-align: center;
+}
+
+th[align="right"],
+td[align="right"] {
+    text-align: right;
+}
+
+/* Optional: horizontales Scrollen */
+
+.table-scroll {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.table-scroll table {
+    margin: 0;
+}
+
+
+/* ==========================================
+   HIGHSCORE-TABELLE
+   Klasse: highscores
+   ========================================== */
+
+table.highscores {
+    width: 100%;
+    margin: 1.5em 0;
+
+    border: 1px solid #a9c6df;
+    border-radius: 12px;
+
+    border-collapse: separate;
+    border-spacing: 0;
+
+    overflow: hidden;
+
+    font-family: var(--font-body);
+    font-size: 1em;
+
+    box-shadow: 0 3px 12px rgba(24, 63, 114, 0.07);
+}
+
+/* Tabellenkopf */
+
+.highscores thead th {
+    background: var(--table-header);
+    color: #ffffff;
+
+    padding: 13px 14px;
+
+    font-family: var(--font-body);
+    font-weight: 900;
+    font-size: 0.95em;
+
+    text-align: left;
+    border: 0;
+    white-space: nowrap;
+}
+
+/* Tabellenzeilen */
+
+.highscores tbody tr {
+    background: #ffffff;
+}
+
+.highscores tbody tr:hover {
+    background: #d5eafa;
+}
+
+/* Tabellenzellen */
+
+.highscores tbody td {
+    padding: 11px 14px;
+
+    border-bottom: 1px solid #d4e3ef;
+
+    color: #26384d;
+    vertical-align: middle;
+}
+
+.highscores tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+/* Platzierung */
+
+.highscores .rank {
+    width: 55px;
+    text-align: center;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+/* Gold, Silber und Bronze */
+
+.highscores tbody tr:nth-child(1) .rank {
+    color: #916000;
+    background: #ffe5a0;
+}
+
+.highscores tbody tr:nth-child(2) .rank {
+    color: #525b66;
+    background: #e0e4e9;
+}
+
+.highscores tbody tr:nth-child(3) .rank {
+    color: #8b4b20;
+    background: #f3d0b1;
+}
+
+/* Spielername */
+
+.highscores .name {
+    font-weight: 700;
+    text-align: left;
+}
+
+/* Punktzahl */
+
+.highscores .score {
+    text-align: right;
+
+    font-weight: 900;
+    font-variant-numeric: tabular-nums;
+
+    white-space: nowrap;
+}
+
+/* Level */
+
+.highscores .level {
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+/* Datum, falls vorhanden */
+
+.highscores .date {
+    text-align: center;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+
+
+/* ==========================================
+   OPTIONALE HINWEISBOXEN
+   ========================================== */
+
+.note {
+    margin: 1.3em 0;
+    padding: 12px 16px;
+
+    background: #e8f4fd;
+    border-left: 4px solid #2786c9;
+    border-radius: 7px;
+}
+
+.note > :last-child {
+    margin-bottom: 0;
+}
+
+.warning {
+    margin: 1.3em 0;
+    padding: 12px 16px;
+
+    background: #fff3ee;
+    border-left: 4px solid var(--accent);
+    border-radius: 7px;
+}
+
+.warning > :last-child {
+    margin-bottom: 0;
+}
+
+
+/* ==========================================
+   WEITERE HTML-ELEMENTE
+   ========================================== */
+
+details {
+    margin: 1.2em 0;
+    padding: 12px 16px;
+
+    background: #f5f9fd;
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+summary {
+    cursor: pointer;
+    color: var(--heading);
+    font-weight: 800;
+}
+
+details[open] summary {
+    margin-bottom: 0.8em;
+}
+
+details > :last-child {
+    margin-bottom: 0;
+}
+
+address {
+    font-style: normal;
+    color: var(--text-muted);
+}
+
+dt {
+    font-weight: 800;
+    color: var(--heading);
+}
+
+dd {
+    margin: 0 0 0.8em 1.5em;
+}
+
+
+/* ==========================================
+   MOBILE DARSTELLUNG
+   ========================================== */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 10px;
+        font-size: 15px;
+    }
+
+    .content {
+        padding: 18px 16px;
+        border-radius: 9px;
+    }
+
+    h1 {
+        font-size: 2.1rem;
+    }
+
+    h2 {
+        font-size: 1.65rem;
+    }
+
+    h3 {
+        font-size: 1.35rem;
+    }
+
+    h4 {
+        font-size: 1.2rem;
+    }
+
+    ul, ol {
+        padding-inline-start: 1.4em;
+    }
+
+    blockquote {
+        padding: 10px 13px;
+    }
+
+    pre {
+        padding: 12px;
+    }
+
+    table {
+        font-size: 0.85em;
+    }
+
+    th, td {
+        padding: 8px 7px;
+    }
+
+    table.highscores {
+        font-size: 0.85em;
+    }
+
+    .highscores thead th,
+    .highscores tbody td {
+        padding: 9px 7px;
+    }
+
+    .highscores .rank {
+        width: 32px;
+    }
+}
+
+
+/* ==========================================
+   REDUZIERTE ANIMATIONEN
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    a {
+        transition: none;
+    }
+}

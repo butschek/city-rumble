@@ -1,1 +1,38 @@
+########################################################################
+## .gitignore
+########################################################################
+
+##
+## OS specific files
+##
+
+# Windows Explorer metadata and thumbnails
+[Dd]esktop.ini
+[Tt]humbs.db
+[Tt]humbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+
+# Windows symlinks
 *.lnk
+
+# macOS Finder metadata and resource forks
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100/
+.Trashes/
+.fseventsd/
+
+# Linux file manager metadata and thumbnail caches
+.directory
+.thumbnails/
+
+# Temporary files and backups
+*~
+*.tmp
+*.temp
+*.swp
+*.swo
+*.bak
